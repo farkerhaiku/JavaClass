@@ -3,4 +3,6 @@
     <string name="project_2">Project 2</string>
     <string name="project_3">Project 3</string>
     <string name="project_4">Project 4</string>
+    <string name="title_activity_project_three">ProjectThreeActivity</string>
+    <string name="title_activity_project_two">ProjectTwoActivity</string>
 </resources>
