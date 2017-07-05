@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import edu.stlcc.jasonmayer.javaclass.R;
+import edu.stlcc.jasonmayer.javaclass.models.Employee;
 
 public class NewEmployeeDialog extends DialogFragment {
     private static final String TAG = "NewEmployeeDialog";
@@ -44,16 +45,13 @@ public class NewEmployeeDialog extends DialogFragment {
         }
     };
 
+    public void setOnClickListener(DialogInterface.OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        onClickListener = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Log.e(TAG, "onClick: ");
-            }
-        };
-
         View employeeView = getEmployeeView();
         alertDialog = new AlertDialog.Builder(getContext())
                 .setMessage(R.string.create_new_employee_title)
@@ -96,5 +94,14 @@ public class NewEmployeeDialog extends DialogFragment {
         } else {
             button.setEnabled(true);
         }
+    }
+
+    public Employee getEmployee() {
+        Employee employee = new Employee();
+        employee.setSocial(social.getText().toString());
+        employee.setLastName(last.getText().toString());
+        employee.setFirstName(first.getText().toString());
+        employee.setEmailAddress(email.getText().toString());
+        return employee;
     }
 }

@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import edu.stlcc.jasonmayer.javaclass.R;
+import edu.stlcc.jasonmayer.javaclass.models.Customer;
 
 
 public class NewCustomerDialog extends DialogFragment {
@@ -56,16 +57,17 @@ public class NewCustomerDialog extends DialogFragment {
         }
     }
 
+    public boolean isValidEmail(String value){
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(value).matches();
+    }
+
+    public void setOnClickListener(DialogInterface.OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        onClickListener = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Log.e(TAG, "onClick: ");
-            }
-        };
-
         alertDialog = new AlertDialog.Builder(getContext())
                 .setMessage(R.string.create_new_customer_title)
                 .setPositiveButton("Add", onClickListener)
@@ -96,4 +98,13 @@ public class NewCustomerDialog extends DialogFragment {
         return inflate;
     }
 
+    public Customer getCustomer() {
+        Customer c = new Customer();
+        c.setCustomerNumber(customerNumber.getText().toString());
+        c.setEmailAddress(email.getText().toString());
+        c.setFirstName(first.getText().toString());
+        c.setLastName(last.getText().toString());
+        Log.e(TAG, "getCustomer: " + c.getDisplayText() );
+        return c;
+    }
 }
