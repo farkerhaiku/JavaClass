@@ -7,4 +7,11 @@
     <string name="title_activity_project_two">ProjectTwoActivity</string>
     <string name="customer">Customer</string>
     <string name="employee">Employee</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="customer_number">Customer Number</string>
+    <string name="social_security_number">Social Security Number</string>
+    <string name="create_new_employee_title">Create New Employee</string>
+    <string name="create_new_customer_title">Enter New Customer</string>
 </resources>
