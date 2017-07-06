@@ -18,6 +18,7 @@ import edu.stlcc.jasonmayer.javaclass.R;
 import edu.stlcc.jasonmayer.javaclass.chapterThree.Bin2Dec;
 import edu.stlcc.jasonmayer.javaclass.chapterThree.Conversion;
 import edu.stlcc.jasonmayer.javaclass.chapterThree.Dec2Bin;
+import edu.stlcc.jasonmayer.javaclass.chapterThree.Dec2Hex;
 
 public class ProjectThreeActivity extends AppCompatActivity {
 
@@ -63,6 +64,10 @@ public class ProjectThreeActivity extends AppCompatActivity {
                 }
                 if (decimalToBinary.isChecked()) {
                     conversion = new Dec2Bin(input);
+                }
+
+                if (decimalToHex.isChecked()) {
+//                    conversion = new Dec2Hex(input);
                 }
 
                 if (conversion.isValid()) {
