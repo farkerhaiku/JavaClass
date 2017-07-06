@@ -19,15 +19,4 @@ public class Bin2Dec extends Bin2Num {
         setInput(value);
         convert(value);
     }
-
-    private boolean isValid(String v) {
-        try {
-            int i = Integer.parseInt(v, 2);
-            Log.e("TAG", "isValid: " + i + "|" + v);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
-
 }

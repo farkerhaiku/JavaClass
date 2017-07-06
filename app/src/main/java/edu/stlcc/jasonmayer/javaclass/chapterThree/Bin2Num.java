@@ -5,29 +5,10 @@ import java.util.List;
 
 public class Bin2Num implements Conversion {
     private String result;
-    private ArrayList<String> resultsteps;
+    private List<String> resultsteps = new ArrayList<>();
     private String emsg;
     private String input;
 
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public ArrayList<String> getResultsteps() {
-        return resultsteps;
-    }
-
-    public void setResultsteps(ArrayList<String> resultsteps) {
-        this.resultsteps = resultsteps;
-    }
-
-    public String getEmsg() {
-        return emsg;
-    }
-
-    public void setEmsg(String emsg) {
-        this.emsg = emsg;
-    }
 
     public String getInput() {
         return input;
@@ -62,16 +43,22 @@ public class Bin2Num implements Conversion {
 
     @Override
     public String getResult() {
-        return null;
+        return String.valueOf(Integer.parseInt(getInput(), getPower()));
     }
 
     @Override
     public boolean isValid() {
-        return false;
+        try {
+            Integer.parseInt(getInput(), getPower());
+
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public List<String> getProcessLog() {
-        return null;
+        return resultsteps;
     }
 }

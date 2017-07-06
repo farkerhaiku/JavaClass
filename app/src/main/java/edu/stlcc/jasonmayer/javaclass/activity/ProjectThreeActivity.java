@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -24,6 +25,7 @@ import edu.stlcc.jasonmayer.javaclass.chapterThree.Conversion;
 
 public class ProjectThreeActivity extends AppCompatActivity {
 
+    private static final String TAG = "ProjectThreeActivity";
     private RadioButton decimalToHex;
     private RadioButton decimalToBinary;
     private RadioButton binaryToDecimal;
@@ -57,12 +59,15 @@ public class ProjectThreeActivity extends AppCompatActivity {
         binaryToDecimal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.e(TAG, "onCheckedChanged: ");
                 if (isChecked) {
                     String input = valueInput.getText().toString();
                     conversion = new Bin2Dec(input);
                 }
             }
         });
+        binaryToDecimal.setChecked(false);
+        binaryToDecimal.setChecked(true);
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
