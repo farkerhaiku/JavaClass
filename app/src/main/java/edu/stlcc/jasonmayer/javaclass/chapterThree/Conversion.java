@@ -7,6 +7,4 @@ public interface Conversion {
     String getResult();
     boolean isValid();
     List<String> getProcessLog();
-
-    void setInput(String input);
 }

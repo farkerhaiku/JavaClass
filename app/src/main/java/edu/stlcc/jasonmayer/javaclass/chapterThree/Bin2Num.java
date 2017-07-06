@@ -9,13 +9,12 @@ public class Bin2Num implements Conversion {
     private String emsg;
     private String input;
 
+    public Bin2Num(String input){
+        this.input = input;
+    }
 
     public String getInput() {
         return input;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
     }
 
     protected void convert(String v) {
@@ -50,7 +49,6 @@ public class Bin2Num implements Conversion {
     public boolean isValid() {
         try {
             Integer.parseInt(getInput(), getPower());
-
         } catch (NumberFormatException nfe) {
             return false;
         }

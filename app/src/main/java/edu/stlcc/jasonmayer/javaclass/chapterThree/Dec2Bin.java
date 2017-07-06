@@ -2,13 +2,17 @@
 package edu.stlcc.jasonmayer.javaclass.chapterThree;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Dec2Bin {
+public class Dec2Bin implements Conversion {
+    private final String value;
     private String result;
     private ArrayList<String> resultsteps;
     private String emsg;
 
     public Dec2Bin(String value) {
+        this.value = value;
+
         emsg = "";
         try {
             long n = Long.parseLong(value);
@@ -37,15 +41,27 @@ public class Dec2Bin {
         this.result += String.valueOf(r);
     }
 
+    @Override
+    public String getValue() {
+        return value;
+    }
+
     public String getResult() {
         return this.result;
     }
 
-    public ArrayList<String> getResultSteps() {
-        return this.resultsteps;
+    @Override
+    public boolean isValid() {
+        try {
+            Integer.parseInt(value);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
-    public String getErrorMsg() {
-        return this.emsg;
+    @Override
+    public List<String> getProcessLog() {
+        return this.resultsteps;
     }
 }

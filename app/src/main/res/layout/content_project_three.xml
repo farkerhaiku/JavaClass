@@ -92,11 +92,14 @@
             android:text="@string/process_output_label" />
 
         <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="300dp">
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#FF0000"
+            >
             <TextView
                 android:id="@+id/processed_output"
                 android:layout_width="match_parent"
+                android:layout_gravity="top"
                 android:layout_height="wrap_content" />
 
         </ScrollView>
