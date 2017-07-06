@@ -67,7 +67,7 @@ public class ProjectThreeActivity extends AppCompatActivity {
                 }
 
                 if (decimalToHex.isChecked()) {
-//                    conversion = new Dec2Hex(input);
+                    conversion = new Dec2Hex(input);
                 }
 
                 if (conversion.isValid()) {
