@@ -17,7 +17,9 @@
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintRight_toLeftOf="parent"
             tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp">
+            tools:layout_editor_absoluteX="8dp"
+            android:checkedButton="@+id/binary_to_decimal"
+            >
 
             <RadioButton
                 android:id="@+id/binary_to_decimal"
