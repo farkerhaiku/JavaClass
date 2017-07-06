@@ -8,12 +8,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import java.util.List;
 
 import edu.stlcc.jasonmayer.javaclass.R;
 import edu.stlcc.jasonmayer.javaclass.chapterThree.Bin2Dec;
@@ -64,6 +67,9 @@ public class ProjectThreeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (conversion.isValid()) {
+                    List<String> processLog = conversion.getProcessLog();
+                    String join = TextUtils.join("\n", processLog);
+                    resultOutput.setText(join);
                 }
             }
         });
