@@ -14,4 +14,12 @@
     <string name="social_security_number">Social Security Number</string>
     <string name="create_new_employee_title">Create New Employee</string>
     <string name="create_new_customer_title">Enter New Customer</string>
+    <string name="value_label">Value:</string>
+    <string name="convert_button_text">Convert</string>
+    <string name="process_output_label">Process:</string>
+    <string name="binary_to_decimal">Binary to Decimal</string>
+    <string name="decimal_to_hexadecimal">Decimal to Hex</string>
+    <string name="decimal_to_binary">Decimal to Binary</string>
+    <string name="result_label">Result:</string>
+    <string name="clear">Clear</string>
 </resources>
