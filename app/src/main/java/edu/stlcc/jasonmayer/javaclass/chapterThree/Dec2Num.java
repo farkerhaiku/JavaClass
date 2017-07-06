@@ -1,5 +1,7 @@
 package edu.stlcc.jasonmayer.javaclass.chapterThree;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +41,13 @@ public class Dec2Num implements Conversion {
         if (newval > 0) {
             convertByRecur(newval);
         }
-        this.result += String.valueOf(r);
+
+        this.result += getStringOutput(r);
+    }
+
+    @NonNull
+    protected String getStringOutput(int r) {
+        return String.valueOf(r);
     }
 
 
