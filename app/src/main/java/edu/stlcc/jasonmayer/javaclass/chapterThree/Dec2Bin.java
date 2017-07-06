@@ -12,4 +12,7 @@ public class Dec2Bin extends Dec2Num {
         super(input);
     }
 
+    protected int getPower() {
+        return 2;
+    }
 }

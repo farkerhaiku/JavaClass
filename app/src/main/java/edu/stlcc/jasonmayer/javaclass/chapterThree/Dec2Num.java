@@ -25,12 +25,16 @@ public class Dec2Num implements Conversion {
         }
     }
 
+    protected int getPower() {
+        return 1;
+    }
+
     protected void convertByRecur(long n) {
         int r = 0;
 
-        r = (int) (n % 2);
-        long newval = n / 2;
-        resultsteps.add(n + " divided by 2 = " + newval + " w/remainder of: " + r);
+        r = (int) (n % getPower());
+        long newval = n / getPower();
+        resultsteps.add(n + " divided by "+ getPower() + " = " + newval + " w/remainder of: " + r);
 
         if (newval > 0) {
             convertByRecur(newval);
