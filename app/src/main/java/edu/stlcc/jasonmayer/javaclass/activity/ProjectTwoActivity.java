@@ -3,10 +3,14 @@ package edu.stlcc.jasonmayer.javaclass.activity;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +24,7 @@ import edu.stlcc.jasonmayer.javaclass.R;
 import edu.stlcc.jasonmayer.javaclass.models.Customer;
 import edu.stlcc.jasonmayer.javaclass.models.Employee;
 import edu.stlcc.jasonmayer.javaclass.models.Person;
+import edu.stlcc.jasonmayer.javaclass.views.DividerItemDecoration;
 import edu.stlcc.jasonmayer.javaclass.views.NewCustomerDialog;
 import edu.stlcc.jasonmayer.javaclass.views.NewEmployeeDialog;
 import edu.stlcc.jasonmayer.javaclass.views.PersonAdapter;
@@ -27,7 +32,7 @@ import edu.stlcc.jasonmayer.javaclass.views.PersonAdapter;
 public class ProjectTwoActivity extends AppCompatActivity {
 
     private SwitchCompat newUserTypeToggle;
-    private RecyclerView listView;
+    private RecyclerView recyclerView;
     private List<Person> customers = new ArrayList<>();
     private List<Person> employees = new ArrayList<>();
     private PersonAdapter personAdapter;
@@ -40,9 +45,7 @@ public class ProjectTwoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         newUserTypeToggle = (SwitchCompat) findViewById(R.id.customer_employee_toggle);
-        listView = (RecyclerView) findViewById(R.id.listView);
-        personAdapter = new PersonAdapter(getLayoutInflater());
-        listView.setAdapter(personAdapter);
+        setupListView();
 
         newUserTypeToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -82,6 +85,22 @@ public class ProjectTwoActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setupListView() {
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        Drawable dividerDrawable = ContextCompat.getDrawable(this, R.drawable.black_line_divider);
+        recyclerView.addItemDecoration(new DividerItemDecoration(dividerDrawable));
+
+        personAdapter = new PersonAdapter(getLayoutInflater());
+        recyclerView.setAdapter(personAdapter);
     }
 
     public static Intent getLaunchIntent(Activity context) {
